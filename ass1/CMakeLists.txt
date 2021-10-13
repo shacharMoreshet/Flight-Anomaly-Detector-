@@ -3,4 +3,4 @@ project(ass1)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(ass1 main.cpp)
+add_executable(ass1 anomaly_detection_util.h anomaly_detection_util.cpp)

@@ -46,10 +46,10 @@ RM = "C:\Program Files\JetBrains\CLion 2021.2.2\bin\cmake\win\bin\cmake.exe" -E 
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "C:\Users\shach\git repos\advanced-programming\ass1"
+CMAKE_SOURCE_DIR = "C:\Users\aviya\git repos\advanced-programming\ass1"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "C:\Users\shach\git repos\advanced-programming\ass1\cmake-build-debug"
+CMAKE_BINARY_DIR = "C:\Users\aviya\git repos\advanced-programming\ass1\cmake-build-debug"
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -76,9 +76,9 @@ rebuild_cache\fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\shach\git repos\advanced-programming\ass1\cmake-build-debug\CMakeFiles" "C:\Users\shach\git repos\advanced-programming\ass1\cmake-build-debug\\CMakeFiles\progress.marks"
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\aviya\git repos\advanced-programming\ass1\cmake-build-debug\CMakeFiles" "C:\Users\aviya\git repos\advanced-programming\ass1\cmake-build-debug\\CMakeFiles\progress.marks"
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 /nologo -$(MAKEFLAGS) all
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\shach\git repos\advanced-programming\ass1\cmake-build-debug\CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\aviya\git repos\advanced-programming\ass1\cmake-build-debug\CMakeFiles" 0
 .PHONY : all
 
 # The main clean target
@@ -118,29 +118,29 @@ ass1\fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\ass1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ass1.dir\build
 .PHONY : ass1\fast
 
-main.obj: main.cpp.obj
-.PHONY : main.obj
+anomaly_detection_util.obj: anomaly_detection_util.cpp.obj
+.PHONY : anomaly_detection_util.obj
 
 # target to build an object file
-main.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\ass1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ass1.dir\main.cpp.obj
-.PHONY : main.cpp.obj
+anomaly_detection_util.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ass1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ass1.dir\anomaly_detection_util.cpp.obj
+.PHONY : anomaly_detection_util.cpp.obj
 
-main.i: main.cpp.i
-.PHONY : main.i
+anomaly_detection_util.i: anomaly_detection_util.cpp.i
+.PHONY : anomaly_detection_util.i
 
 # target to preprocess a source file
-main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\ass1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ass1.dir\main.cpp.i
-.PHONY : main.cpp.i
+anomaly_detection_util.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ass1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ass1.dir\anomaly_detection_util.cpp.i
+.PHONY : anomaly_detection_util.cpp.i
 
-main.s: main.cpp.s
-.PHONY : main.s
+anomaly_detection_util.s: anomaly_detection_util.cpp.s
+.PHONY : anomaly_detection_util.s
 
 # target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\ass1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ass1.dir\main.cpp.s
-.PHONY : main.cpp.s
+anomaly_detection_util.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ass1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ass1.dir\anomaly_detection_util.cpp.s
+.PHONY : anomaly_detection_util.cpp.s
 
 # Help Target
 help:
@@ -151,9 +151,9 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... ass1
-	@echo ... main.obj
-	@echo ... main.i
-	@echo ... main.s
+	@echo ... anomaly_detection_util.obj
+	@echo ... anomaly_detection_util.i
+	@echo ... anomaly_detection_util.s
 .PHONY : help
 
 
