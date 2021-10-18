@@ -2,7 +2,7 @@
 <CodeBlocks_project_file>
 	<FileVersion major="1" minor="6"/>
 	<Project>
-		<Option title="ass1"/>
+		<Option title="Flight_Anomaly_Detector"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="gcc"/>
 		<Option virtualFolders="CMake Files\;"/>
@@ -80,6 +80,9 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="C:/Users/aviya/git repos/advanced-programming/ass1/MainTrain.cpp">
+			<Option target="ass1"/>
+		</Unit>
 		<Unit filename="C:/Users/aviya/git repos/advanced-programming/ass1/anomaly_detection_util.cpp">
 			<Option target="ass1"/>
 		</Unit>
