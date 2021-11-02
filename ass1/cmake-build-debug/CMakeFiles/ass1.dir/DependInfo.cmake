@@ -8,10 +8,11 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "C:/Users/aviya/git repos/advanced-programming/ass1/MainTrain.cpp" "C:/Users/aviya/git repos/advanced-programming/ass1/cmake-build-debug/CMakeFiles/ass1.dir/MainTrain.cpp.obj"
-  "C:/Users/aviya/git repos/advanced-programming/ass1/anomaly_detection_util.cpp" "C:/Users/aviya/git repos/advanced-programming/ass1/cmake-build-debug/CMakeFiles/ass1.dir/anomaly_detection_util.cpp.obj"
+  "C:/Users/shach/git repos/advanced-programming/ass1/MainTrain.cpp" "C:/Users/shach/git repos/advanced-programming/ass1/cmake-build-debug/CMakeFiles/ass1.dir/MainTrain.cpp.obj"
+  "C:/Users/shach/git repos/advanced-programming/ass1/TimeSeries.cpp" "C:/Users/shach/git repos/advanced-programming/ass1/cmake-build-debug/CMakeFiles/ass1.dir/TimeSeries.cpp.obj"
+  "C:/Users/shach/git repos/advanced-programming/ass1/anomaly_detection_util.cpp" "C:/Users/shach/git repos/advanced-programming/ass1/cmake-build-debug/CMakeFiles/ass1.dir/anomaly_detection_util.cpp.obj"
   )
-set(CMAKE_CXX_COMPILER_ID "GNU")
+set(CMAKE_CXX_COMPILER_ID "MSVC")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
