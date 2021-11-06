@@ -142,6 +142,30 @@ MainTrain.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\ass1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ass1.dir\MainTrain.cpp.s
 .PHONY : MainTrain.cpp.s
 
+SimpleAnomalyDetector.obj: SimpleAnomalyDetector.cpp.obj
+.PHONY : SimpleAnomalyDetector.obj
+
+# target to build an object file
+SimpleAnomalyDetector.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ass1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ass1.dir\SimpleAnomalyDetector.cpp.obj
+.PHONY : SimpleAnomalyDetector.cpp.obj
+
+SimpleAnomalyDetector.i: SimpleAnomalyDetector.cpp.i
+.PHONY : SimpleAnomalyDetector.i
+
+# target to preprocess a source file
+SimpleAnomalyDetector.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ass1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ass1.dir\SimpleAnomalyDetector.cpp.i
+.PHONY : SimpleAnomalyDetector.cpp.i
+
+SimpleAnomalyDetector.s: SimpleAnomalyDetector.cpp.s
+.PHONY : SimpleAnomalyDetector.s
+
+# target to generate assembly for a file
+SimpleAnomalyDetector.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ass1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ass1.dir\SimpleAnomalyDetector.cpp.s
+.PHONY : SimpleAnomalyDetector.cpp.s
+
 TimeSeries.obj: TimeSeries.cpp.obj
 .PHONY : TimeSeries.obj
 
@@ -165,6 +189,30 @@ TimeSeries.s: TimeSeries.cpp.s
 TimeSeries.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\ass1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ass1.dir\TimeSeries.cpp.s
 .PHONY : TimeSeries.cpp.s
+
+TimeSeriesAnomalyDetector.obj: TimeSeriesAnomalyDetector.cpp.obj
+.PHONY : TimeSeriesAnomalyDetector.obj
+
+# target to build an object file
+TimeSeriesAnomalyDetector.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ass1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ass1.dir\TimeSeriesAnomalyDetector.cpp.obj
+.PHONY : TimeSeriesAnomalyDetector.cpp.obj
+
+TimeSeriesAnomalyDetector.i: TimeSeriesAnomalyDetector.cpp.i
+.PHONY : TimeSeriesAnomalyDetector.i
+
+# target to preprocess a source file
+TimeSeriesAnomalyDetector.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ass1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ass1.dir\TimeSeriesAnomalyDetector.cpp.i
+.PHONY : TimeSeriesAnomalyDetector.cpp.i
+
+TimeSeriesAnomalyDetector.s: TimeSeriesAnomalyDetector.cpp.s
+.PHONY : TimeSeriesAnomalyDetector.s
+
+# target to generate assembly for a file
+TimeSeriesAnomalyDetector.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ass1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ass1.dir\TimeSeriesAnomalyDetector.cpp.s
+.PHONY : TimeSeriesAnomalyDetector.cpp.s
 
 anomaly_detection_util.obj: anomaly_detection_util.cpp.obj
 .PHONY : anomaly_detection_util.obj
@@ -202,9 +250,15 @@ help:
 	@echo ... MainTrain.obj
 	@echo ... MainTrain.i
 	@echo ... MainTrain.s
+	@echo ... SimpleAnomalyDetector.obj
+	@echo ... SimpleAnomalyDetector.i
+	@echo ... SimpleAnomalyDetector.s
 	@echo ... TimeSeries.obj
 	@echo ... TimeSeries.i
 	@echo ... TimeSeries.s
+	@echo ... TimeSeriesAnomalyDetector.obj
+	@echo ... TimeSeriesAnomalyDetector.i
+	@echo ... TimeSeriesAnomalyDetector.s
 	@echo ... anomaly_detection_util.obj
 	@echo ... anomaly_detection_util.i
 	@echo ... anomaly_detection_util.s
