@@ -14,7 +14,7 @@ CMakeFiles\ass1.dir\SimpleAnomalyDetector.cpp.obj: ..\anomaly_detection_util.h
 CMakeFiles\ass1.dir\SimpleAnomalyDetector.cpp.obj: ..\timeseries.h
 
 CMakeFiles\ass1.dir\TimeSeries.cpp.obj: ..\AnomalyDetector.h
-CMakeFiles\ass1.dir\TimeSeries.cpp.obj: ..\TimeSeries.cpp
+CMakeFiles\ass1.dir\TimeSeries.cpp.obj: ..\timeseries.cpp
 CMakeFiles\ass1.dir\TimeSeries.cpp.obj: ..\timeseries.h
 
 CMakeFiles\ass1.dir\TimeSeriesAnomalyDetector.cpp.obj: ..\TimeSeriesAnomalyDetector.cpp

@@ -46,10 +46,10 @@ RM = "C:\Program Files\JetBrains\CLion 2021.2.2\bin\cmake\win\bin\cmake.exe" -E 
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "C:\Users\shach\git repos\advanced-programming\ass1"
+CMAKE_SOURCE_DIR = "C:\Users\aviya\git repos\advanced-programming\ass1"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "C:\Users\shach\git repos\advanced-programming\ass1\cmake-build-debug"
+CMAKE_BINARY_DIR = "C:\Users\aviya\git repos\advanced-programming\ass1\cmake-build-debug"
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -76,9 +76,9 @@ rebuild_cache\fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\shach\git repos\advanced-programming\ass1\cmake-build-debug\CMakeFiles" "C:\Users\shach\git repos\advanced-programming\ass1\cmake-build-debug\\CMakeFiles\progress.marks"
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\aviya\git repos\advanced-programming\ass1\cmake-build-debug\CMakeFiles" "C:\Users\aviya\git repos\advanced-programming\ass1\cmake-build-debug\\CMakeFiles\progress.marks"
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 /nologo -$(MAKEFLAGS) all
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\shach\git repos\advanced-programming\ass1\cmake-build-debug\CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\aviya\git repos\advanced-programming\ass1\cmake-build-debug\CMakeFiles" 0
 .PHONY : all
 
 # The main clean target
@@ -166,30 +166,6 @@ SimpleAnomalyDetector.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\ass1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ass1.dir\SimpleAnomalyDetector.cpp.s
 .PHONY : SimpleAnomalyDetector.cpp.s
 
-TimeSeries.obj: TimeSeries.cpp.obj
-.PHONY : TimeSeries.obj
-
-# target to build an object file
-TimeSeries.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\ass1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ass1.dir\TimeSeries.cpp.obj
-.PHONY : TimeSeries.cpp.obj
-
-TimeSeries.i: TimeSeries.cpp.i
-.PHONY : TimeSeries.i
-
-# target to preprocess a source file
-TimeSeries.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\ass1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ass1.dir\TimeSeries.cpp.i
-.PHONY : TimeSeries.cpp.i
-
-TimeSeries.s: TimeSeries.cpp.s
-.PHONY : TimeSeries.s
-
-# target to generate assembly for a file
-TimeSeries.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\ass1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ass1.dir\TimeSeries.cpp.s
-.PHONY : TimeSeries.cpp.s
-
 TimeSeriesAnomalyDetector.obj: TimeSeriesAnomalyDetector.cpp.obj
 .PHONY : TimeSeriesAnomalyDetector.obj
 
@@ -238,6 +214,30 @@ anomaly_detection_util.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\ass1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ass1.dir\anomaly_detection_util.cpp.s
 .PHONY : anomaly_detection_util.cpp.s
 
+timeseries.obj: timeseries.cpp.obj
+.PHONY : timeseries.obj
+
+# target to build an object file
+timeseries.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ass1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ass1.dir\timeseries.cpp.obj
+.PHONY : timeseries.cpp.obj
+
+timeseries.i: timeseries.cpp.i
+.PHONY : timeseries.i
+
+# target to preprocess a source file
+timeseries.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ass1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ass1.dir\timeseries.cpp.i
+.PHONY : timeseries.cpp.i
+
+timeseries.s: timeseries.cpp.s
+.PHONY : timeseries.s
+
+# target to generate assembly for a file
+timeseries.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ass1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ass1.dir\timeseries.cpp.s
+.PHONY : timeseries.cpp.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -253,15 +253,15 @@ help:
 	@echo ... SimpleAnomalyDetector.obj
 	@echo ... SimpleAnomalyDetector.i
 	@echo ... SimpleAnomalyDetector.s
-	@echo ... TimeSeries.obj
-	@echo ... TimeSeries.i
-	@echo ... TimeSeries.s
 	@echo ... TimeSeriesAnomalyDetector.obj
 	@echo ... TimeSeriesAnomalyDetector.i
 	@echo ... TimeSeriesAnomalyDetector.s
 	@echo ... anomaly_detection_util.obj
 	@echo ... anomaly_detection_util.i
 	@echo ... anomaly_detection_util.s
+	@echo ... timeseries.obj
+	@echo ... timeseries.i
+	@echo ... timeseries.s
 .PHONY : help
 
 

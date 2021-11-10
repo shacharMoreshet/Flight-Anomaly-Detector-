@@ -1,20 +1,22 @@
 //
-// Created by shach on 03/11/2021.
+// Created by aviya - 209251891 and shahar - 209129618 on 2/11/2021.
 //
 
 #include "SimpleAnomalyDetector.h"
 
 void SimpleAnomalyDetector::learnNormal(const TimeSeries &ts) {
-    int featureNumber = ts.featuresTable.size();
-    for (int i = 0; i < featureNumber; i++) {
+    int rowsNumber = ts.featuresTable[0].second.size(); // rows number
+    int columnNumber = ts.featuresTable.size();
+
+    for (int i = 0; i < columnNumber; i++) {
         correlatedFeatures currentCf = {}; //creat instance
         float max = 0;
-        float c = -1;
+        int c = -1;
         // checking the correlation between feature i to the next features.
-        for (int j = i + 1; j < featureNumber; j++) {
+        for (int j = i + 1; j < columnNumber; j++) {
             float *ptr1 = (float *) &(ts.featuresTable[i].second[0]);
             float *ptr2 = (float *) &(ts.featuresTable[j].second[0]);
-            float p = pearson(ptr1, ptr2, featureNumber);
+            float p = pearson(ptr1, ptr2, rowsNumber);
             if (p > max) { // saving the max correlation.
                 max = p;
                 c = j;
@@ -30,8 +32,8 @@ void SimpleAnomalyDetector::learnNormal(const TimeSeries &ts) {
             vector<float> secondFeatureVals = ts.featuresTable[c].second;
             Line reg = featuresRegLine(firstFeatureVals, secondFeatureVals);
             currentCf.lin_reg = reg;
-            currentCf.threshold = maxDistanceFromReg(firstFeatureVals, secondFeatureVals, reg) * 1.2;
-            if (max >= currentCf.threshold) {
+            currentCf.threshold = maxDistanceFromReg(firstFeatureVals, secondFeatureVals, reg) * 1.1f;
+            if (max >= threshold) {
                 cf.push_back(currentCf);
             }
         }
@@ -70,5 +72,42 @@ SimpleAnomalyDetector::~SimpleAnomalyDetector() {
 }
 
 vector<AnomalyReport> SimpleAnomalyDetector::detect(const TimeSeries &ts) {
-    return {};
+    // the vector of the reports
+    vector<AnomalyReport> reportAnomaly;
+    //the size of the features table
+    int rowsNumber = ts.featuresTable[0].second.size(); // rows number
+    // go on the vector of correlated features
+    for (correlatedFeatures c: cf) {
+        // j is the time step of the anomaly report
+        for (int time = 0; time < rowsNumber; time++) {
+            // the two correlated features
+            string feature1 = c.feature1;
+            string feature2 = c.feature2;
+            //find the value in time step
+            float x = ts.findValueInTimeStep(feature1, time);
+            float y = ts.findValueInTimeStep(feature2, time);
+
+            Point point = Point(x, y);
+            if (isAnomalous(c, point)) {
+                string description = feature1 + "-" + feature2;
+                reportAnomaly.push_back(AnomalyReport(description, time + 1));
+
+            }
+        }
+    }
+    return reportAnomaly;
 }
+
+/**
+ * @param cf - the correlated features.
+ * @param point - the point that we want to check if its anomaly.
+ * @return - true / false.
+ */
+bool SimpleAnomalyDetector::isAnomalous(correlatedFeatures cf, Point point) {
+    if ((dev(point, cf.lin_reg)) > cf.threshold) {
+        return true;
+    }
+    return false;
+}
+
+
