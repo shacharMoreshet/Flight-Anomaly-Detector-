@@ -1,3 +1,3 @@
-C:/Users/aviya/git repos/advanced-programming/ass1/cmake-build-debug/CMakeFiles/ass1.dir
-C:/Users/aviya/git repos/advanced-programming/ass1/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/aviya/git repos/advanced-programming/ass1/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/shach/git repos/advanced-programming/ass1/cmake-build-debug/CMakeFiles/ass1.dir
+C:/Users/shach/git repos/advanced-programming/ass1/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/shach/git repos/advanced-programming/ass1/cmake-build-debug/CMakeFiles/rebuild_cache.dir

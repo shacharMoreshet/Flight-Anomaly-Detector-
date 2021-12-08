@@ -46,10 +46,10 @@ RM = "C:\Program Files\JetBrains\CLion 2021.2.2\bin\cmake\win\bin\cmake.exe" -E 
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "C:\Users\aviya\git repos\advanced-programming\ass1"
+CMAKE_SOURCE_DIR = "C:\Users\shach\git repos\advanced-programming\ass1"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "C:\Users\aviya\git repos\advanced-programming\ass1\cmake-build-debug"
+CMAKE_BINARY_DIR = "C:\Users\shach\git repos\advanced-programming\ass1\cmake-build-debug"
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -76,9 +76,9 @@ rebuild_cache\fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\aviya\git repos\advanced-programming\ass1\cmake-build-debug\CMakeFiles" "C:\Users\aviya\git repos\advanced-programming\ass1\cmake-build-debug\\CMakeFiles\progress.marks"
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\shach\git repos\advanced-programming\ass1\cmake-build-debug\CMakeFiles" "C:\Users\shach\git repos\advanced-programming\ass1\cmake-build-debug\\CMakeFiles\progress.marks"
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 /nologo -$(MAKEFLAGS) all
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\aviya\git repos\advanced-programming\ass1\cmake-build-debug\CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\shach\git repos\advanced-programming\ass1\cmake-build-debug\CMakeFiles" 0
 .PHONY : all
 
 # The main clean target
@@ -214,6 +214,30 @@ anomaly_detection_util.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\ass1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ass1.dir\anomaly_detection_util.cpp.s
 .PHONY : anomaly_detection_util.cpp.s
 
+minCircle.obj: minCircle.cpp.obj
+.PHONY : minCircle.obj
+
+# target to build an object file
+minCircle.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ass1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ass1.dir\minCircle.cpp.obj
+.PHONY : minCircle.cpp.obj
+
+minCircle.i: minCircle.cpp.i
+.PHONY : minCircle.i
+
+# target to preprocess a source file
+minCircle.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ass1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ass1.dir\minCircle.cpp.i
+.PHONY : minCircle.cpp.i
+
+minCircle.s: minCircle.cpp.s
+.PHONY : minCircle.s
+
+# target to generate assembly for a file
+minCircle.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ass1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ass1.dir\minCircle.cpp.s
+.PHONY : minCircle.cpp.s
+
 timeseries.obj: timeseries.cpp.obj
 .PHONY : timeseries.obj
 
@@ -259,6 +283,9 @@ help:
 	@echo ... anomaly_detection_util.obj
 	@echo ... anomaly_detection_util.i
 	@echo ... anomaly_detection_util.s
+	@echo ... minCircle.obj
+	@echo ... minCircle.i
+	@echo ... minCircle.s
 	@echo ... timeseries.obj
 	@echo ... timeseries.i
 	@echo ... timeseries.s
