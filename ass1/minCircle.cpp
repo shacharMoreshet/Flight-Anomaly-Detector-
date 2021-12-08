@@ -3,31 +3,32 @@
 //
 
 #include "minCircle.h"
-#include <algorithm>
+//#include <algorithm>
 #include <assert.h>
 #include <iostream>
-#include <math.h>
 #include <vector>
 
 using namespace std;
 // Defining infinity
 const double INF = 1e18;
 
-Circle findMinCircle(Point **points, size_t size){
+Circle findMinCircle(Point **points, size_t size) {
     return welzl(points, size);
 }
 
 
 Circle minCircleTrivial(vector<Point> &P, size_t size) {
     assert(P.size() <= 3);
-    // if there is no points
-    if (P.empty()) {
-        return { { 0, 0 }, 0 };
-    }
-     else if (size == 1) {
-        return { P[0], 0 };
-    } else if (size == 2) {
-        return circleFrom2(P[0], P[1]);
+
+    switch (size) {
+        case 0:
+            return {{0, 0}, 0};
+        case 1:
+            return {P[0], 0};
+        case 2:
+            return circleFrom2(P[0], P[1]);
+        default:
+            break;
     }
 
     // To check if MEC can be determined
@@ -47,13 +48,14 @@ Circle minCircleTrivial(vector<Point> &P, size_t size) {
 // Function to return the euclidean distance
 // between two points
 float findDistance(const Point &a, const Point &b) {
-    return sqrt(pow(a.x - b.x, 2) + pow(a.y - b.y, 2));
+    return sqrt((a.x - b.x) * (a.x - b.x) + (a.y - b.y) * (a.y - b.y));
+    //return (pow(a.x - b.x, 2) + pow(a.y - b.y, 2));
 }
 
 // Function to check whether a point lies inside
 // or on the boundaries of the circle
 bool isInside(const Circle &c, const Point &p) {
-    return findDistance(c.center, p) <= c.radius;
+    return findDistance(c.center, p) <= (c.radius);
 }
 
 // The following two functions are used
@@ -71,8 +73,7 @@ Point getCircleCenter(float bx, float by, float cx, float cy) {
 // Function to return a unique circle that
 // intersects three points
 Circle circleFrom3(const Point &A, const Point &B, const Point &C) {
-    Point I = getCircleCenter(B.x - A.x, B.y - A.y,
-                              C.x - A.x, C.y - A.y);
+    Point I = getCircleCenter(B.x - A.x, B.y - A.y, C.x - A.x, C.y - A.y);
     I.x += A.x;
     I.y += A.y;
     return {I, findDistance(I, A)};
@@ -82,21 +83,20 @@ Circle circleFrom3(const Point &A, const Point &B, const Point &C) {
 // that intersects 2 points
 Circle circleFrom2(const Point &A, const Point &B) {
     // Set the center to be the midpoint of A and B
-    Point C = {(A.x + B.x) / (float)2.0, (A.y + B.y) / (float)2.0};
+    Point C = {static_cast<float>((A.x + B.x) / 2.0), static_cast<float>((A.y + B.y) / 2.0)};
 
     // Set the radius to be half the distance AB
-    return {C, findDistance(A, B) / (float)2.0};
+    return {C, findDistance(A, B) / (float) 2.0};
 }
 
 // Function to check whether a circle
 // encloses the given points
-bool isValidCircle(const Circle& c, const vector<Point>& P)
-{
+bool isValidCircle(const Circle &c, const vector<Point> &P) {
 
     // Iterating through all the points
     // to check  whether the points
     // lie inside the circle or not
-    for (const Point& p : P)
+    for (const Point &p: P)
         if (!isInside(c, p))
             return false;
     return true;
@@ -116,13 +116,13 @@ Circle welzl_helper(Point **P, vector<Point> R, size_t size) {
     }
 
     // Pick a random point randomly
-    int idx = rand() % size;
-    Point p = *P[idx];
+    //int idx = rand() % size;
+    Point p = *P[size - 1];
 
     // Put the picked point at the end of P
     // since it's more efficient than
     // deleting from the middle of the vector
-    swap(P[idx], P[size - 1]);
+    //swap(P[idx], P[size - 1]);
 
     // Get the MEC circle d from the
     // set of points P - {p}
@@ -142,5 +142,7 @@ Circle welzl_helper(Point **P, vector<Point> R, size_t size) {
 
 Circle welzl(Point **P, size_t size) {
     Point **P_copy = P;
+//    vector<Point> R = {};
+//    R.reserve(R.size());
     return welzl_helper(P_copy, {}, size);
 }

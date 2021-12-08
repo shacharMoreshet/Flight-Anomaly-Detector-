@@ -3,6 +3,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/ass1.dir/SimpleAnomalyDetector.cpp.obj"
   "CMakeFiles/ass1.dir/TimeSeriesAnomalyDetector.cpp.obj"
   "CMakeFiles/ass1.dir/anomaly_detection_util.cpp.obj"
+  "CMakeFiles/ass1.dir/minCircle.cpp.obj"
   "CMakeFiles/ass1.dir/timeseries.cpp.obj"
   "ass1.exe"
   "ass1.exe.manifest"
