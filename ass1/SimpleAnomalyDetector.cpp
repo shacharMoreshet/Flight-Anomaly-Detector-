@@ -6,10 +6,8 @@
 
 void SimpleAnomalyDetector::learnNormal(const TimeSeries &ts) {
     int rowsNumber = ts.featuresTable[0].second.size(); // rows number
-    int columnNumber = ts.featuresTable.size();
-
+    int columnNumber = ts.featuresTable.size(); // column Number
     for (int i = 0; i < columnNumber; i++) {
-        correlatedFeatures currentCf = {}; //creat instance
         float max = 0;
         int c = -1;
         // checking the correlation between feature i to the next features.
@@ -25,19 +23,45 @@ void SimpleAnomalyDetector::learnNormal(const TimeSeries &ts) {
         // if c value changed and the correlation is bigger than threshold
         // this means we can add new correlated features.
         if (c != -1) {
-            currentCf.feature1 = ts.featuresTable[i].first;
-            currentCf.feature2 = ts.featuresTable[c].first;
-            currentCf.corrlation = max;
             vector<float> firstFeatureVals = ts.featuresTable[i].second;
             vector<float> secondFeatureVals = ts.featuresTable[c].second;
-            Line reg = featuresRegLine(firstFeatureVals, secondFeatureVals);
-            currentCf.lin_reg = reg;
-            currentCf.threshold = maxDistanceFromReg(firstFeatureVals, secondFeatureVals, reg) * 1.1f;
-            if (max >= threshold) {
-                cf.push_back(currentCf);
-            }
+            string feature1 = ts.featuresTable[i].first;
+            string feature2 = ts.featuresTable[c].first;
+            Point **points = vectorToArrayPoints(firstFeatureVals, secondFeatureVals);
+            setCf(points, max, ts, feature1, feature2, firstFeatureVals, secondFeatureVals);
+            deletePoints(points, firstFeatureVals.size());
         }
     }
+}
+
+Point **SimpleAnomalyDetector::vectorToArrayPoints(vector<float> f1, vector<float> f2) {
+    Point **ps = new Point *[f1.size()];
+    for (size_t i = 0; i < f1.size(); i++) {
+        ps[i] = new Point(f1[i], f2[2]);
+    }
+    return ps;
+}
+
+void SimpleAnomalyDetector::setCf(Point **points, float max, const TimeSeries &ts, string feature1,
+                                  string feature2, vector<float> firstFeatureVals, vector<float> secondFeatureVals) {
+    if (max >= threshold) {
+        correlatedFeatures currentCf = {};//creat instance
+        currentCf.corrlation = max;
+        currentCf.feature1 = feature1;
+        currentCf.feature2 = feature2;
+        Line reg = featuresRegLine(firstFeatureVals, secondFeatureVals);
+        currentCf.lin_reg = reg;
+        currentCf.threshold = maxDistanceFromReg(firstFeatureVals, secondFeatureVals, reg) * 1.1f;
+        cf.push_back(currentCf);
+    }
+
+}
+
+void SimpleAnomalyDetector::deletePoints(Point **p, int size) {
+    for (int i = 0; i < size; ++i) {
+        delete p[i];
+    }
+    delete p;
 }
 
 Line SimpleAnomalyDetector::featuresRegLine(vector<float> f1, vector<float> f2) {
@@ -76,6 +100,7 @@ vector<AnomalyReport> SimpleAnomalyDetector::detect(const TimeSeries &ts) {
     vector<AnomalyReport> reportAnomaly;
     //the size of the features table
     int rowsNumber = ts.featuresTable[0].second.size(); // rows number
+
     // go on the vector of correlated features
     for (correlatedFeatures c: cf) {
         // j is the time step of the anomaly report
@@ -95,6 +120,7 @@ vector<AnomalyReport> SimpleAnomalyDetector::detect(const TimeSeries &ts) {
             }
         }
     }
+
     return reportAnomaly;
 }
 

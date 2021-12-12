@@ -57,6 +57,7 @@ bool isInside(const Circle &c, const Point &p) {
     return findDistance(c.center, p) <= (c.radius);
 }
 
+
 // Helper method to get a circle defined by 3 points
 Point getCircleCenter(float bx, float by, float cx, float cy) {
     float B = bx * bx + by * by;
@@ -128,6 +129,5 @@ Circle welzl_helper(Point **P, vector<Point> R, size_t size) {
 }
 
 Circle welzl(Point **P, size_t size) {
-    //Point **P_copy = P;
     return welzl_helper(P, {}, size);
 }

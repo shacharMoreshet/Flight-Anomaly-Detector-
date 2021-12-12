@@ -22,6 +22,7 @@ public:
     float radius;
 
     Circle(Point c, float r) : center(c), radius(r) {}
+    Circle(): center(Point()), radius(0){}
 };
 // --------------------------------------
 
@@ -29,7 +30,7 @@ Circle findMinCircle(Point **points, size_t size);
 
 //float findDistance(const Point &a, const Point &b);
 
-//bool isInside(const Circle &c, const Point &p);
+bool isInside(const Circle &c, const Point &p);
 
 //Point getCircleCenter(float bx, float by, float cx, float cy);
 

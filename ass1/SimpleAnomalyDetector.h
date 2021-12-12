@@ -12,32 +12,47 @@
 #include <algorithm>
 #include <string.h>
 #include <math.h>
+#include "minCircle.h"
 
-struct correlatedFeatures{
-    string feature1,feature2;  // names of the correlated features
+struct correlatedFeatures {
+    string feature1, feature2;  // names of the correlated features
     float corrlation;
     Line lin_reg;
+    Circle mec;
     float threshold; // maxDistanceFromReg
 };
 
 
-class SimpleAnomalyDetector:public TimeSeriesAnomalyDetector{
+class SimpleAnomalyDetector : public TimeSeriesAnomalyDetector {
+protected:
     vector<correlatedFeatures> cf;
-    float threshold = 0.8; // max correlation allowed
+    float threshold = 0.9; // max correlation allowed
 
 public:
     SimpleAnomalyDetector();
+
     virtual ~SimpleAnomalyDetector();
-    virtual void learnNormal(const TimeSeries& ts);
-    virtual vector<AnomalyReport> detect(const TimeSeries& ts);
+
+    virtual void learnNormal(const TimeSeries &ts);
+
+    virtual vector<AnomalyReport> detect(const TimeSeries &ts);
+
     virtual Line featuresRegLine(vector<float> f1, vector<float> f2);
+
     virtual float maxDistanceFromReg(vector<float> f1, vector<float> f2, Line reg);
 
-    vector<correlatedFeatures> getNormalModel(){
+    virtual Point **vectorToArrayPoints(vector<float> f1, vector<float> f2);
+
+    vector<correlatedFeatures> getNormalModel() {
         return cf;
     }
 
     virtual bool isAnomalous(correlatedFeatures cf, Point point);
+
+    virtual void deletePoints(Point **p, int size);
+
+    virtual void setCf(Point **points, float max, const TimeSeries &ts, string feature1,
+                                      string feature2, vector<float> firstFeatureVals, vector<float> secondFeatureVals);
 };
 
 #endif /* SIMPLEANOMALYDETECTOR_H_ */
