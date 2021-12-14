@@ -41,7 +41,7 @@ public:
 
     virtual float maxDistanceFromReg(vector<float> f1, vector<float> f2, Line reg);
 
-    virtual Point **vectorToArrayPoints(vector<float> f1, vector<float> f2);
+    virtual Point **vectorToArrayPoints(float *x, float *y, int size);
 
     vector<correlatedFeatures> getNormalModel() {
         return cf;

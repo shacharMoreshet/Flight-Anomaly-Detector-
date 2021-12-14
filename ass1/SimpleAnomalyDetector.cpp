@@ -27,19 +27,21 @@ void SimpleAnomalyDetector::learnNormal(const TimeSeries &ts) {
             vector<float> secondFeatureVals = ts.featuresTable[c].second;
             string feature1 = ts.featuresTable[i].first;
             string feature2 = ts.featuresTable[c].first;
-            Point **points = vectorToArrayPoints(firstFeatureVals, secondFeatureVals);
+            Point **points = vectorToArrayPoints(firstFeatureVals.data(), secondFeatureVals.data(), firstFeatureVals.size());
             setCf(points, max, ts, feature1, feature2, firstFeatureVals, secondFeatureVals);
             deletePoints(points, firstFeatureVals.size());
         }
     }
 }
 
-Point **SimpleAnomalyDetector::vectorToArrayPoints(vector<float> f1, vector<float> f2) {
-    Point **ps = new Point *[f1.size()];
-    for (size_t i = 0; i < f1.size(); i++) {
-        ps[i] = new Point(f1[i], f2[2]);
+Point **SimpleAnomalyDetector::vectorToArrayPoints(float *x, float *y, int size) {
+    // create a array of pointers that every one is a pointer to point.
+    Point **p = new Point *[size];
+    // create all the points.
+    for (int i = 0; i < size; i++) {
+        p[i] = new Point(x[i], y[i]);
     }
-    return ps;
+    return p;
 }
 
 void SimpleAnomalyDetector::setCf(Point **points, float max, const TimeSeries &ts, string feature1,
@@ -58,10 +60,10 @@ void SimpleAnomalyDetector::setCf(Point **points, float max, const TimeSeries &t
 }
 
 void SimpleAnomalyDetector::deletePoints(Point **p, int size) {
-    for (int i = 0; i < size; ++i) {
+    for (int i = 0; i < size; i++) {
         delete p[i];
     }
-    delete p;
+    delete[] p;
 }
 
 Line SimpleAnomalyDetector::featuresRegLine(vector<float> f1, vector<float> f2) {
