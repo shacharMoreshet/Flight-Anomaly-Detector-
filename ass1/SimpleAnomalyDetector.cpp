@@ -118,7 +118,6 @@ vector<AnomalyReport> SimpleAnomalyDetector::detect(const TimeSeries &ts) {
             if (isAnomalous(c, point)) {
                 string description = feature1 + "-" + feature2;
                 reportAnomaly.push_back(AnomalyReport(description, time + 1));
-
             }
         }
     }

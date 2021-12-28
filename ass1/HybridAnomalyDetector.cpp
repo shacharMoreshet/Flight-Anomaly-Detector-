@@ -28,6 +28,14 @@ void HybridAnomalyDetector::setCf(Point **points, float max, const TimeSeries &t
     }
 }
 
+float HybridAnomalyDetector::getThreshold(){
+    return this->threshold;
+}
+
+void HybridAnomalyDetector::setThreshold(float threshold){
+    this->threshold = threshold;
+}
+
 HybridAnomalyDetector::HybridAnomalyDetector() {
     // TODO Auto-generated constructor stub
 }

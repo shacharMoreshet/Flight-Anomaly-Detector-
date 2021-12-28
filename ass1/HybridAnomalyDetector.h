@@ -16,9 +16,8 @@ public:
     virtual bool isAnomalous(correlatedFeatures cf,Point point);
     virtual void setCf(Point **points, float max, const TimeSeries &ts, string feature1,
                                       string feature2, vector<float> firstFeatureVals, vector<float> secondFeatureVals);
-//    virtual void HybridAnomalyDetector::setCf(Point **points, float max, const TimeSeries &ts, string feature1,
-//                                              string feature2, vector<float> firstFeatureVals, vector<float> secondFeatureVals);
-
+    float HybridAnomalyDetector::getThreshold();
+    void HybridAnomalyDetector::setThreshold(float threshold);
 };
 
 
