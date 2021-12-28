@@ -26,9 +26,7 @@ void CLI::start() {
         for (Command *c : commandsVector){ // printing the menu
             c->printDescription();
         }
-        string inp = dio->read();
-        cout<<inp<<endl;
-        i = stoi (inp); // getting the option from the client
+        i = stoi (dio->read()); // getting the option from the client
         commandsVector.at( i-1 )->execute(); // execute the option (the index in the vector starts at 0).
     }
 }
