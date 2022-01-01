@@ -7,8 +7,6 @@
 #include "minCircle.h"
 
 class HybridAnomalyDetector:public SimpleAnomalyDetector {
-//    vector<correlatedFeatures> cf;
-//    float threshold = 0.9; // max correlation allowed
 public:
 	HybridAnomalyDetector();
 	virtual ~HybridAnomalyDetector();

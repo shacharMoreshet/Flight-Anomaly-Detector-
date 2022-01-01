@@ -45,7 +45,29 @@ struct dataC {
     HybridAnomalyDetector *hybrid = new HybridAnomalyDetector();
 };
 
-// you may edit this class
+class StandardIO : public DefaultIO {
+public:
+    void write(string str)
+    {
+        cout << str << endl;
+    }
+    void write(float number)
+    {
+        cout << number << endl;
+    }
+    string read()
+    {
+        string str;
+        cin >> str;
+        return str;
+    }
+    void read(float *number)
+    {
+        cin >> *number;
+    }
+};
+
+
 class Command {
 protected:
     DefaultIO *dio;

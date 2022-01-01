@@ -190,6 +190,30 @@ MainTrain.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\ass1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ass1.dir\MainTrain.cpp.s
 .PHONY : MainTrain.cpp.s
 
+Server.obj: Server.cpp.obj
+.PHONY : Server.obj
+
+# target to build an object file
+Server.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ass1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ass1.dir\Server.cpp.obj
+.PHONY : Server.cpp.obj
+
+Server.i: Server.cpp.i
+.PHONY : Server.i
+
+# target to preprocess a source file
+Server.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ass1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ass1.dir\Server.cpp.i
+.PHONY : Server.cpp.i
+
+Server.s: Server.cpp.s
+.PHONY : Server.s
+
+# target to generate assembly for a file
+Server.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ass1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\ass1.dir\Server.cpp.s
+.PHONY : Server.cpp.s
+
 SimpleAnomalyDetector.obj: SimpleAnomalyDetector.cpp.obj
 .PHONY : SimpleAnomalyDetector.obj
 
@@ -328,6 +352,9 @@ help:
 	@echo ... MainTrain.obj
 	@echo ... MainTrain.i
 	@echo ... MainTrain.s
+	@echo ... Server.obj
+	@echo ... Server.i
+	@echo ... Server.s
 	@echo ... SimpleAnomalyDetector.obj
 	@echo ... SimpleAnomalyDetector.i
 	@echo ... SimpleAnomalyDetector.s
