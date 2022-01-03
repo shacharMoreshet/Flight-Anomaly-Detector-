@@ -31,5 +31,5 @@ public:
     virtual ~TimeSeriesAnomalyDetector() {}
 };
 
-#endif ANOMALY_DETECTION_UTIL_CPP_ANOMALYDETECTOR_H
+#endif //ANOMALY_DETECTION_UTIL_CPP_ANOMALYDETECTOR_H
 

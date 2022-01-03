@@ -1,4 +1,3 @@
-
 #include "Server.h"
 
 Server::Server(int port) throw(const char *) {
@@ -13,11 +12,11 @@ Server::Server(int port) throw(const char *) {
     this->server.sin_family = AF_INET;
 
     // attaching socket to the port
-    if (bind(server_fd, (struct sockaddr *) &server, sizeof(server)) < 0){
+    if (bind(serverFd, (struct sockaddr *) &server, sizeof(server)) < 0){
         throw "bind failed";
     }
 
-    if (listen(server_fd, 3) < 0){
+    if (listen(serverFd, 3) < 0){
         throw "listen failed";
     }
     // to check if we need to close the connection.
@@ -26,10 +25,12 @@ Server::Server(int port) throw(const char *) {
 
 
 void Server::start(ClientHandler &ch) throw(const char *) {
-    this->t = new thread ([&ch, this]{ // lambda expression
-        socklen_t clientSocketSize = sizeof(client);
+    t = new thread([&ch, this](){ // lambda expression
+
             while(!this->shouldCloseConnection){
-                int clientFd = accept(fd, (struct sockaddr *)&client, &clientSocketSize);
+                socklen_t clientSocketSize = sizeof(client);
+                alarm(5);
+                int clientFd = accept(serverFd, (struct sockaddr *)&client, &clientSocketSize);
                 if (clientFd < 0)
                 {
                     throw "accept failed";
@@ -44,9 +45,8 @@ void Server::start(ClientHandler &ch) throw(const char *) {
 
 void Server::stop() {
     this->shouldCloseConnection = true;
-    t->join();
+    this->t->join();
 }
-
 
 Server::~Server() {
     delete this->t;
